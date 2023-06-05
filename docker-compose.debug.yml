@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  foameropenaiimage:
+    image: foameropenaiimage
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 6983:6983
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
